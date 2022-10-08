@@ -1,0 +1,10 @@
+python -c "import seitei; seitei.seitei()"
+python -c "import hello-api; hello-api.post_response()"
+
+pip freeze > requirements.txt
+pip install -r requirements.txt
+
+## 【GCP初心者向け】Cloud Runでサーバーレスな超簡易Web APIを無料で作る
+## https://qiita.com/dzbt_dzbt/items/dde54e3417ae5c17730b
+## コマンド実行後、新しいリビジョンの編集とデプロイを忘れずに
+gcloud builds submit --tag gcr.io/hey-abe/hello-api --project hey-abe
