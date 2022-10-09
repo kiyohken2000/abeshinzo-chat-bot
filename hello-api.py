@@ -31,7 +31,7 @@ def post_response():
       do_sample = True,
       top_k = 100,
       top_p = 0.95,
-      max_length = 100,
+      max_length = 50,
       temperature = 0.95,
       num_return_sequences = 1,
       bad_words_ids = [[tokenizer.bos_token_id], [tokenizer.sep_token_id], [tokenizer.unk_token_id]],
@@ -55,7 +55,7 @@ def post_response():
   result = {}
   result['origin'] = outlit
   result['romaji'] = romaji
-  
+
   print('outlit', outlit)
   print('pyopenjtalk', romaji)
   print('result', result)
