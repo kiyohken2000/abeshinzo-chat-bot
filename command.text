@@ -1,4 +1,3 @@
-python -c "import seitei; seitei.seitei()"
 python -c "import hello-api; hello-api.post_response()"
 
 pip freeze > requirements.txt
@@ -9,3 +8,6 @@ pip install -r requirements.txt
 ## コマンド実行後、新しいリビジョンの編集とデプロイを忘れずに
 ## hey-abeはGCPのプロジェクト名
 gcloud builds submit --tag gcr.io/hey-abe/hello-api --project hey-abe
+
+## アップロードされるファイルの確認
+gcloud meta list-files-for-upload

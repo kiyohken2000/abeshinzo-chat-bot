@@ -2,6 +2,7 @@ import os
 from flask import Flask, request
 import torch
 from transformers import T5Tokenizer, AutoModelForCausalLM #安倍晋三発言生成用
+import pyopenjtalk
 
 #安倍晋三モデル読み込み
 tokenizer = T5Tokenizer.from_pretrained("rinna/japanese-gpt2-medium")#入出力文をトークンに変換する際の基準
@@ -49,9 +50,17 @@ def post_response():
   #生成した文章を一文にして。を付け直す
   outlist = outlit.split('。')
   outlit = outlist[0]+'。'
-  print('outlit', outlit)
+  romaji = pyopenjtalk.g2p(outlit)
 
-  return outlit
+  result = {}
+  result['origin'] = outlit
+  result['romaji'] = romaji
+  
+  print('outlit', outlit)
+  print('pyopenjtalk', romaji)
+  print('result', result)
+
+  return result
 
 if __name__ == "__main__":
   app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
