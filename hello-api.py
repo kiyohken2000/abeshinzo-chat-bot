@@ -17,12 +17,9 @@ def post_response():
   request_dict = request.get_json()
   req_data = str(request_dict['data'])
 
-  print('受信したテキスト', req_data)
-
   #入力テキストをトークン化
   input_text = '<s>' + req_data + '[SEP]'
   input_ids = tokenizer.encode(input_text, return_tensors='pt', add_special_tokens=False)
-  print('input_text', input_text)
   
   #。で終了する文章ができるまで生成
   while True:
@@ -31,7 +28,7 @@ def post_response():
       do_sample = True,
       top_k = 100,
       top_p = 0.95,
-      max_length = 40,
+      max_length = 35,
       temperature = 0.95,
       num_return_sequences = 1,
       bad_words_ids = [[tokenizer.bos_token_id], [tokenizer.sep_token_id], [tokenizer.unk_token_id]],
@@ -55,9 +52,8 @@ def post_response():
   result = {}
   result['origin'] = outlit
   result['romaji'] = romaji
+  result['question'] = req_data
 
-  print('outlit', outlit)
-  print('pyopenjtalk', romaji)
   print('result', result)
 
   return result
