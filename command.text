@@ -1,4 +1,5 @@
-python -c "import hello-api; hello-api.post_response()"
+## テスト用コマンド
+python -c "import test; test.hello()"
 
 pip freeze > requirements.txt
 pip install -r requirements.txt

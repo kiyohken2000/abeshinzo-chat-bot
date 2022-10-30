@@ -4,3 +4,5 @@ README.md
 .gitignore
 .DS_Store
 command.text
+__pycache__
+test.py

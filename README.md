@@ -34,3 +34,49 @@ const { origin, romaji, question } = res.data
   "romaji": "k o r e w a pau i m a m a d e m o o sh i a g e t e i r u t o o r i d e a r i m a sh I t e pau w a t a sh i w a n a i k a k U s o o r i d a i j i N d e a r u t o d o o j i n i j i y u u m i N sh U t o o n o s o o s a i d e a r i m a s U"
 }
 ```
+
+## ローカルでのテスト手順
+
+### Requirements
+
+- Python3
+- CMake
+- pip
+
+### Install
+
+```
+pip install -r requirements.txt
+```
+
+### Run
+
+```
+python -c "import test; test.hello()"
+```
+
+## Commands
+
+### パッケージの書き出し
+
+```
+pip freeze > requirements.txt
+```
+
+### Cloud Runにデプロイ
+
+コマンド実行後、GCPコンソール上で新しいリビジョンの編集とデプロイをする
+
+`hey-abe`はGCPのプロジェクト名
+
+参考：[【GCP初心者向け】Cloud Runでサーバーレスな超簡易Web APIを無料で作る](https://qiita.com/dzbt_dzbt/items/dde54e3417ae5c17730b)
+
+```
+gcloud builds submit --tag gcr.io/hey-abe/hello-api --project hey-abe
+```
+
+### アップロードされるファイルの確認
+
+```
+gcloud meta list-files-for-upload
+```
