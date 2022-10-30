@@ -2,7 +2,7 @@
 
 テキストを渡すと安倍晋三風のテキストを返すウェブAPI(CloudRun用)
 
-trainingDataフォルダは重いので別で
+[trainingData](https://drive.google.com/file/d/1gHnvGmhyhE6fQ_3YT7l-x0AbeUcLluSI/view?usp=sharing)フォルダは展開してルートディレクトリに配置。
 
 ## Request
 
